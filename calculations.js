@@ -3,9 +3,9 @@ function increaseBalance(x, y) {
   return x;
 }
 
-function decreaseBalance(x) {
-x = x - y;
-return x;
+function decreaseBalance(x, y) {
+  x = x - y;
+  return x;
 }
 
 function divideBalanceByAccounts(x, y) {

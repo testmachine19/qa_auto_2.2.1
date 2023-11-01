@@ -38,7 +38,41 @@ console.log("Проверка достоверноси расчета перво
 function testExpenseCalculator(expenseData) {
   const { yearlyExpences } = expenseData;
   const calculatedTotal = calculateExpenses(yearlyExpences);
-  console.log(`Суииа расходов выше 1000: ${calculatedTotal}`);
+  console.log(`Сумма расходов выше 1000: ${calculatedTotal}`);
 }
 
 expencesExamples.forEach(testExpenseCalculator);
+
+function monthsBelowOrEqual1000(yearlyExpences) {
+  const months = [
+    "Январь",
+    "Февраль",
+    "Март",
+    "Апрель",
+    "Май",
+    "Июнь",
+    "Июль",
+    "Август",
+    "Сентябрь",
+    "Октябрь",
+    "Ноябрь",
+    "Декабрь",
+  ];
+
+  const result = [];
+
+  yearlyExpences.forEach((expense, index) => {
+    if (expense <= 1000) {
+      const month = new Date(0, index, 1);
+      result.push(months[month.getMonth()]);
+    }
+  });
+
+  return result;
+}
+
+expencesExamples.forEach((expenseData) => {
+  const { yearlyExpences } = expenseData;
+  const months = monthsBelowOrEqual1000(yearlyExpences);
+  console.log(`Месяцы с расходами <= 1000: ${months.join(", ")}`);
+});
